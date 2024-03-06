@@ -6,13 +6,12 @@ import os
 
 
 def do_pack():
-    try:
-        if not os.path.exists("versions"):
-            local('mkdir versions')
-        t = datetime.now()
-        f = "%Y%m%d%H%M%S"
-        archive_path = 'versions/web_static_{}.tgz'.format(t.strftime(f))
-        local('tar -cvzf {} web_static'.format(archive_path))
-        return archive_path
-    except:
+    local("mkdir -p versions")
+    date = datetime.now()
+    date_str = date.strftime("%Y%m%d%H%M%S")
+    r = local("tar -cvzf versions/web_static_{}.tgz web_static".format(date_str))
+    path = "versions/web_static_{}.tgz".format(date_str)
+    if r.failed:
         return None
+    else:
+        return (path)
