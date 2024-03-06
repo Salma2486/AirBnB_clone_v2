@@ -1,19 +1,18 @@
 #!/usr/bin/python3
-""" srgt sryt hrsdy thrdsyth6d"""
-from fabric.api import local
-import os.path
+""" Function that compress a folder """
 from datetime import datetime
+from fabric.api import local
+import os
 
 
 def do_pack():
-    """rftxh srt hsrdt hf"""
-    local("mkdir -p versions")
-    date = datetime.now()
-    date_str = date.strftime("%Y%m%d%H%M%S")
-    result = local("tar -cvzf versions/web_static_{}\
-            .tgz web_static".format(date_str))
-    path = "versions/web_static_{}.tgz".format(date_str)
-    if result.failed:
+    try:
+        if not os.path.exists("versions"):
+            local('mkdir versions')
+        t = datetime.now()
+        f = "%Y%m%d%H%M%S"
+        archive_path = 'versions/web_static_{}.tgz'.format(t.strftime(f))
+        local('tar -cvzf {} web_static'.format(archive_path))
+        return archive_path
+    except:
         return None
-    else:
-        return (path)
