@@ -20,7 +20,8 @@ def do_pack():
         return "versions/web_static_{}.tgz".format(filename)
 
     except Exception as e:
-        return None
+        print("An error occurred during packing:", e)
+        raise None
 
 
 def do_deploy(archive_path):
