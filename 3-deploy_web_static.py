@@ -6,6 +6,7 @@ from os.path import exists
 
 
 env.hosts = ['54.174.5.167', '18.210.10.255']
+env.user = 'ubuntu'
 
 
 def do_pack():
@@ -53,9 +54,7 @@ def do_deploy(archive_path):
 
 def deploy():
     """run the 2 functions"""
-
     path = do_pack()
     if not path:
         return False
-
     return do_deploy(path)
