@@ -22,6 +22,7 @@ def do_pack():
     except Exception as e:
         return None
 
+
 def do_deploy(archive_path):
     """Fabric script that distributes
     an archive to your web server"""
@@ -47,6 +48,7 @@ def do_deploy(archive_path):
     except Exception as e:
         print("An error occurred:", e)
         return False
+
 
 def deploy():
     """Creates and distributes an archive to your web servers"""
