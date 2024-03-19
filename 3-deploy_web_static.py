@@ -5,7 +5,7 @@ from datetime import date
 from os.path import exists
 
 
-env.hosts = ['54.174.5.167', '18.210.10.255']
+env.hosts = ['35.174.205.47', '54.87.158.254']
 env.user = 'ubuntu'
 
 
