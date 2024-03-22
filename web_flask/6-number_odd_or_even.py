@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ ytedujyet uj rjry uj"""
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
